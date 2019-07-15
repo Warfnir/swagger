@@ -2,8 +2,8 @@ from flask import Blueprint
 from flask_restplus import Api
 from flask_swagger_ui import get_swaggerui_blueprint
 
-from .staging import api as ns1
-from .master import api as ns2
+from .namespace1 import api as ns1
+from .namepsace2 import api as ns2
 
 blueprint1 = Blueprint('blueprint1', __name__)
 get_swaggerui_blueprint()

@@ -1,6 +1,6 @@
 from flask import Blueprint
 from flask_restplus import Api
-from .namepsace2 import api as ns2
+from .staging import api as ns2
 
 blueprint2 = Blueprint('blueprint2', __name__,static_folder='templates')
 
