@@ -45,28 +45,29 @@ def update_event(event, branch, platform):
     pass
 
 
-def add_event():  # event, branch, platform):
+def add_event(event, branch, platform):
     """Adds new event if it doesn't exists yet in a given /platform/branch."""
+
+    # Designating path to file
     path = os.path.dirname(os.path.abspath(__file__))
     path, sep, rest = path.rpartition('\\')
-    path += '\\static\\'
+    path += f'\\static\\{platform}.json'
     print(path)
-    print(os.listdir(path))
 
-    # with open('E:\Python Projects\swagger\static\gift.json', 'r') as file:
-    #     data = file.read()
-    #     obj = data[data.find(('{')): data.rfind('}') + 1]
-    #     jsonObj = json.loads(obj)
-    #     print(type(jsonObj))
-    #     print(jsonObj)
-    #     jsonObj.get('paths').update(toAdd)
-    #     for i in jsonObj.get('paths'):
-    #         print(i)
-    #     print(jsonObj.get('paths').get('MY_EVENT'))
-    #     jsonObj.get('paths')
-    #
-    # with open('E:\Python Projects\swagger\static\gift.json', 'w') as file:
-    #     json.dump(jsonObj, file)
-    # pass
+    # Open file and check if event already exists
+    with open(path, 'r') as file:
+        data = file.read()
+        obj = data[data.find(('{')): data.rfind('}') + 1]
+        jsonObj = json.loads(obj)   # File content
+        print(jsonObj)
+        # jsonObj.get('paths').update(toAdd)
+        # for i in jsonObj.get('paths'):
+        #     print(i)
+        # print(jsonObj.get('paths').get('MY_EVENT'))
+        # jsonObj.get('paths')
 
-add_event()
+    with open('E:\Python Projects\swagger\static\gift.json', 'w') as file:
+        json.dump(jsonObj, file)
+    pass
+
+add_event('my event', 'master', 'web')
