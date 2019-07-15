@@ -1,11 +1,11 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "sean",
+    "description": "Contains both master and staging gift request",
     "version": "1.0.0",
-    "title": "Seans-Python3-Flask-Rest-Boilerplate",
+    "title": "Gift request database",
     "contact": {
-      "email": "seanwasere@gmail.com"
+      "email": "notnow@com"
     },
     "license": {
       "name": "MIT",
@@ -19,22 +19,38 @@
   ],
   "tags": [
     {
-      "name": "Gift Master",
-      "description": "All gift master events"
+      "name": "Master"
     }
   ],
   "paths": {
+    "START_CALL": {
+      "options": {
+        "tags": [
+          "Staging"
+        ],
+        "summary": "second service",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/jsondata"
+            }
+          }
+        }
+      }
+    },
     "PRESS_START_CALL": {
       "options": {
         "tags": [
-          "Gift Master"
+          "Master"
         ],
+        "schema": "#/components/schemas/jsondata",
         "summary": "Returns bookRequests",
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/components/schemas/bookRequests"
+              "$ref": "#/components/schemas/jsondata"
             }
           }
         }
@@ -43,14 +59,14 @@
     "/event_name2": {
       "options": {
         "tags": [
-          "Gift Master"
+          "Master"
         ],
         "summary": "Returns bookRequests",
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/components/schemas/bookRequests"
+              "$ref": "#/components/schemas/jsondata"
             }
           }
         }
@@ -59,14 +75,14 @@
     "/event_name3": {
       "options": {
         "tags": [
-          "Gift Master"
+          "Master"
         ],
         "summary": "Returns bookRequests",
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/components/schemas/bookRequests"
+              "$ref": "#/components/schemas/jsondata"
             }
           }
         }
@@ -75,14 +91,23 @@
     "/event_name4": {
       "options": {
         "tags": [
-          "Gift Master"
+          "Master"
+        ],
+        "parameters":[
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Book Request id",
+            "schema": {"$ref":"#/components/schemas/jsondata"}
+        }
         ],
         "summary": "Returns bookRequests",
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/components/schemas/bookRequests"
+              "$ref": "#/components/schemas/jsondata"
             }
           }
         }
@@ -91,14 +116,14 @@
     "/request": {
       "options": {
         "tags": [
-          "Gift Master"
+          "Master"
         ],
         "summary": "Returns bookRequests",
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/components/schemas/bookRequests"
+              "$ref": "#/components/schemas/jsondata"
             }
           }
         }
@@ -114,7 +139,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bookRequestPostBody"
+                "$ref": "#/components/schemas/jsondata"
               }
             }
           }
@@ -126,7 +151,7 @@
           "201": {
             "description": "OK",
             "schema": {
-              "$ref": "#/components/schemas/id"
+              "$ref": "#/components/schemas/jsondata"
             }
           },
           "400": {
@@ -147,7 +172,7 @@
       ],
       "options": {
         "tags": [
-          "Gift Master"
+          "Master"
         ],
         "summary": "Get book request with given ID",
         "parameters": [
@@ -157,7 +182,7 @@
             "required": true,
             "description": "Book Request id",
             "schema": {
-              "$ref": "#/components/schemas/id"
+              "$ref": "#/components/schemas/jsondata"
             }
           }
         ],
@@ -165,7 +190,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/components/schemas/bookRequest"
+              "$ref": "#/components/schemas/jsondata"
             }
           },
           "400": {
@@ -188,7 +213,7 @@
             "required": true,
             "description": "Book Request id",
             "schema": {
-              "$ref": "#/components/schemas/id"
+              "$ref": "#/components/schemas/jsondata"
             }
           }
         ],
@@ -198,7 +223,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bookRequest"
+                "$ref": "#/components/schemas/jsondata"
               }
             }
           }
@@ -210,7 +235,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/components/schemas/bookRequest"
+              "$ref": "#/components/schemas/jsondata"
             }
           },
           "400": {
@@ -230,7 +255,7 @@
             "required": true,
             "description": "Book Request Id",
             "schema": {
-              "$ref": "#/components/schemas/id"
+              "$ref": "#/components/schemas/jsondata"
             }
           }
         ],
@@ -238,7 +263,7 @@
           "204": {
             "description": "OK",
             "schema": {
-              "$ref": "#/components/schemas/id"
+              "$ref": "#/components/schemas/jsondata"
             }
           },
           "400": {
@@ -253,43 +278,25 @@
   },
   "components": {
     "schemas": {
-      "jsonin": {
+      "jsondata": {
         "type": "object",
+        "required": true,
         "properties": {
-          "branch": {
-            "type": "string",
-            "format": "string"
-          },
-          "platform": {
-            "type": "string",
-            "format": "string"
-          },
-          "jsondata": {
-            "type": "object",
-            "properties": {
-              "eventName": {
-                "type": "string"
+              "id": {
+                "type": "integer"
               },
-              "joiObject": {
-                "type": "joiObject",
-                "properties": {
-                  "id": {
-                    "type": "key"
-                  },
-                  "recipientId": {
-                    "type": "Integer"
-                  },
-                  "dataTimestamp": {
-                    "type": "Integer"
-                  },
-                  "username": {
-                    "type": "string"
-                  }
-                }
+              "recipientId": {
+                "type": "integer"
+              },
+              "dataTimestamp": {
+                "type": "integer"
+              },
+              "username": {
+                "type": "string",
+                "maxLength": "255"
               }
             }
           }
-        }
       },
       "id": {
         "properties": {
@@ -328,17 +335,16 @@
           }
         }
       },
-      "bookRequests": {
+      "jsondata": {
         "type": "object",
         "properties": {
           "bookRequest": {
             "type": "object",
             "additionalProperties": {
-              "$ref": "#/components/schemas/bookRequest"
+              "$ref": "#/components/schemas/jsondata"
             }
           }
         }
       }
     }
   }
-}
