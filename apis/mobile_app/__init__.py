@@ -1,8 +1,11 @@
 from flask import Blueprint
 from flask_restplus import Api
 from .staging import api as ns2
+from flask_swagger_ui import get_swaggerui_blueprint
 
-blueprint2 = Blueprint('blueprint2', __name__,static_folder='templates')
+SWAGGER_URL = '/events/mobile'
+API_URL = '/static/mobile.json'
 
-api2 = Api(blueprint2)
-api2.add_namespace(ns2, path='/prefix/of/ns2')
+mobile_blueprint = get_swaggerui_blueprint(SWAGGER_URL,API_URL, config={'app_name': 'mobile'})
+mobile_blueprint.name='name_mobile'
+api = Api(mobile_blueprint)

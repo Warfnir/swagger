@@ -15,7 +15,7 @@ MASTER = [
 class DogList(Resource):
     @api.doc('list_master')
     @api.marshal_list_with(master)
-    def get(self):
+    def options(self):
         '''List all masters'''
         return MASTER
 
@@ -25,7 +25,7 @@ class DogList(Resource):
 class Master(Resource):
     @api.doc('get_cat')
     @api.marshal_with(master)
-    def get(self, id):
+    def options(self, id):
         '''Fetch a master given its identifier'''
         for master in MASTER:
             if master['id'] == id:

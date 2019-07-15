@@ -15,7 +15,7 @@ DOGS = [
 class DogList(Resource):
     @api.doc('list_dogs')
     @api.marshal_list_with(dog)
-    def get(self):
+    def options(self):
         '''List all dogs'''
         return DOGS
 
@@ -25,7 +25,7 @@ class DogList(Resource):
 class Dog(Resource):
     @api.doc('get_cat')
     @api.marshal_with(dog)
-    def get(self, id):
+    def options(self, id):
         '''Fetch a cat given its identifier'''
         for dog in DOGS:
             if dog['id'] == id:

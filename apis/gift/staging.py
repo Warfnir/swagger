@@ -15,7 +15,7 @@ STAGING = [
 class CatList(Resource):
     @api.doc('list_cats')
     @api.marshal_list_with(staging)
-    def get(self):
+    def options(self):
         '''List all cats'''
         return STAGING
 
