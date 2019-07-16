@@ -2,11 +2,11 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "sean",
+    "description": "Contains both master and staging server requests",
     "version": "1.0.0",
-    "title": "Seans-Python3-Flask-Rest-Boilerplate",
+    "title": "Server requests documentation",
     "contact": {
-      "email": "seanwasere@gmail.com"
+      "email": "notnow@com"
     },
     "license": {
       "name": "MIT",
@@ -25,6 +25,20 @@
     }
   ],
   "paths": {
+    "master/event_name": {
+      "options": {
+        "tags": [
+          "Master"
+        ]
+      }
+    },
+    "staging/event_name": {
+      "options": {
+        "tags": [
+          "Staging"
+        ]
+      }
+    },
     "/request": {
       "get": {
         "tags": [

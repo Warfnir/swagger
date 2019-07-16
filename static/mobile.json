@@ -2,11 +2,11 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "sean",
+    "description": "Contain both master and staging mobile requests",
     "version": "1.0.0",
-    "title": "Seans-Python3-Flask-Rest-Boilerplate",
+    "title": "Mobile request documentation",
     "contact": {
-      "email": "seanwasere@gmail.com"
+      "email": "notnow@com"
     },
     "license": {
       "name": "MIT",
@@ -25,6 +25,40 @@
     }
   ],
   "paths": {
+    "master/event name": {
+      "options": {
+        "tags": [
+          "Master"
+        ],
+        "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of the cat that we want to match",
+          "type": "string"
+        }
+      ],
+        "requestBody": {
+          "description": "Book Request Post Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bookRequestPostBody"
+              }
+            }
+          }
+        }
+      }
+    },
+    "staging/event name": {
+      "options": {
+        "tags": [
+          "Staging"
+        ]
+      }
+    },
     "/request": {
       "get": {
         "tags": [
@@ -238,13 +272,18 @@
       "bookRequestPostBody": {
         "type": "object",
         "properties": {
-          "title": {
-            "type": "string",
-            "format": "string"
+          "id": {
+            "type": "integer"
           },
-          "email": {
+          "recipientId": {
+            "type": "integer"
+          },
+          "dataTimestamp": {
+            "type": "integer"
+          },
+          "username": {
             "type": "string",
-            "format": "email"
+            "maxLength": 255
           }
         }
       },

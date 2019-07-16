@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "Contains both master and staging gift request",
+    "description": "Contains both master and staging gift requests",
     "version": "1.0.0",
-    "title": "Gift request database",
+    "title": "Gift request documentation",
     "contact": {
       "email": "notnow@com"
     },
