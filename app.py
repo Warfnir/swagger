@@ -17,8 +17,8 @@ app.register_blueprint(server_blueprint,url_prefix=server_ur)
 def parse_request():
     print("ssss")
     data = request.get_json()
-    print ("ssss",data)
-    print(data['jsonData'])
+    #print ("ssss",data)
+    #print(data['jsonData'])
     incomingPost(data)
     return "done"
 app.run(debug=True)

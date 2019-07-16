@@ -1,6 +1,7 @@
 def incomingPost(jsonobject):
     import json
     import os
+    path='/events/mobile'
     parsejson=json.dumps(jsonobject)
     parsed = json.loads(parsejson)
     #print(parsed)
