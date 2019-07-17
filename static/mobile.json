@@ -1,4 +1,3 @@
-
 {
   "openapi": "3.0.0",
   "info": {
@@ -31,14 +30,14 @@
           "Master"
         ],
         "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "ID of the cat that we want to match",
-          "type": "string"
-        }
-      ],
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the cat that we want to match",
+            "type": "string"
+          }
+        ],
         "requestBody": {
           "description": "Book Request Post Object",
           "required": true,
