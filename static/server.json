@@ -1,13 +1,15 @@
-{"openapi":"3.0.0",
+{
+  "openapi": "3.0.0",
   "info": {
-      "version": "1.0.0",
-      "title": "Server request documentation"
-    },
-  "servers": [{
-    "url": "/"
-  }
+    "version": "1.0.0",
+    "title": "Server request documentation"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
   ],
-  "paths":{
+  "paths": {
     "eventName": {
       "options": {
         "tags": [
@@ -16,7 +18,6 @@
         "summary": "(master staging)",
         "parameters": [
           {
-
             "name": "id",
             "required": true,
             "schema": {
@@ -30,6 +31,22 @@
       "options": {
         "tags": [
           "CategoryName"
+        ],
+        "summary": "(staging)"
+      }
+    },
+    "PRESS_START_CALL": {
+      "options": {
+        "tags": [
+          "CALL"
+        ],
+        "summary": "(staging)"
+      }
+    },
+    "PRESS_END_CALL": {
+      "options": {
+        "tags": [
+          "CategoryNames"
         ],
         "summary": "(staging)"
       }

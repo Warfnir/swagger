@@ -1,3 +1,4 @@
+from core import jsonmodyfier
 def incomingPost(jsonobject):
     import json
     import os
@@ -7,7 +8,7 @@ def incomingPost(jsonobject):
     #print(parsed)
     platform = parsed['platform']#'mobile'
     branch = parsed['branch']#'staging'
-    print(parsed['jsonData'])
+    #print(parsed['jsonData'])
 
     #print(platform)
     #print(branch)
@@ -27,6 +28,7 @@ def incomingPost(jsonobject):
             path = '/web'
         elif igllo == 'gift':
             #print("it's a gift post")
+            platform='gift'
             path = '/gift'
         else:
             #print("Unvalid platform name")
@@ -56,15 +58,19 @@ def incomingPost(jsonobject):
             raise ValueError
 
     road=platform_name(platform)
-    way=(str(road)).strip(' {\'}')
-    print (jsonobject)
-    print(jsonobject['jsonData'])
+    way=(str(road)).strip(' {\'}/')
+    #print (jsonobject)
+    #print(jsonobject['jsonData'])
     events=jsonobject['jsonData']
     i=0
     for event in range(len(events)):
-        event_cathegory=(events[i]['eventName'])
+        event_cathegory=(events[i]['categoryName'])
+        event_Name=(events[i]['eventName'])
+        print(way,event_cathegory,branch,event_Name)
+        jsonmodyfier.add_event(way,event_cathegory,branch,event_Name)#need to send params when they are ready
         print("For " + way + " . Create category "+event_cathegory)
         i=i+1
+
 
 
 #openair = '{"branch":"master","joiobject":"arguments","platform":"mobile"}'

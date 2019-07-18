@@ -1,23 +1,30 @@
 import json
 import os
 
-toAdd = {"MY_EVENT": {
-    "options": {
-        "tags": [
-            "CategoryName"
-        ],
-        "summary": "(master staging",
-        "responses": {
-            "200": {
-                "description": "OK",
-                "schema": {
-                    "$ref": "#/components/schemas/bookRequests"
-                }
-            }
+event_name='callingcenter'
+category_name='call'
+branch_name='master'
+
+def add_event(platform_name,category_name,branch_name,event_name):
+    toAdd = {event_name: {
+        "options": {
+            "tags": [
+                category_name
+            ],
+            "summary": "("+ branch_name+")",
+            # "responses": {
+            #     "200": {
+            #         "description": "OK",
+            #         "schema": {
+            #             "$ref": "#/components/schemas/staging"
+            #         }
+            #     }
+            # }
         }
     }
-}
-}
+    }#print
+    print(toAdd[event_name])
+    copy_event(platform_name,category_name,branch_name,toAdd)#.upadte(toAdd))
 
 # with open('E:\Python Projects\swagger\static\gift.json', 'r') as file:
 #     data = file.read()
@@ -45,16 +52,16 @@ def update_event(event, branch, platform):
     pass
 
 
-def add_event(platform, category_name, branch):
+def copy_event(platform, category_name, branch, toAdd):
     """Adds new event if it doesn't exists yet in a given /platform/branch."""
-
+    print(platform,category_name,branch)
     # Designating path to file
     path = os.path.dirname(os.path.abspath(__file__))
     #print(path)
     path, sep, rest = path.rpartition('\\')
     #print(path)
     path += f'\\static\\{platform}.json'
-    print(path)
+    #print(path)
 
     # Open file and check if event already exists
     with open(path, 'r') as file:
@@ -64,11 +71,13 @@ def add_event(platform, category_name, branch):
         all_paths=(jsonObj['paths'])
         #print((all_paths))
         vals=list(all_paths.values())
-        #keyz=list(all_paths.keys())
-        #cnt=0
+        keyz=list(all_paths.keys())
+        #print(keyz)
+        cnt=0
         for val in vals:
-            #print(keyz[cnt])
+            print(keyz[cnt])
             zloto=(val['options']['tags'])
+            cnt=cnt+1
             #print(str(zloto))
             #if(str(zloto).find('CategoryNames'))!=-1:
             print(zloto)
@@ -77,15 +86,14 @@ def add_event(platform, category_name, branch):
                 print("Both master and staging are present!")
 
             #jeśli kategoria już istnieje dodaj edytowany branch i jego schemat
-            if str(zloto).strip('[]\'')=="CategoryNames":
-                print("change ")
-            else:
-                print("adding event")
-                jsonObj.get('paths').update(toAdd)
-                for i in jsonObj.get('paths'):
-                    print(i)
-                print(jsonObj.get('paths').get('MY_EVENT'))
-                jsonObj.get('paths')
+        print("adding event")
+        print(jsonObj.get('paths'))
+        jsonObj.get('paths').update(toAdd)
+        #print(jsonObj.get('paths'))
+            # for i in jsonObj.get('paths'):
+            #    print(i)
+            # print(jsonObj.get('paths').get('MY_EVENT'))
+            # jsonObj.get('paths')
             #cnt=cnt+1
 
         # jsonObj.get('paths').update(toAdd)
@@ -94,9 +102,9 @@ def add_event(platform, category_name, branch):
         # print(jsonObj.get('paths').get('MY_EVENT'))
         # jsonObj.get('paths')
 
-    with open('C:\\Users\\dakim\\PycharmProjects\\swagger\\static\\gift.json', 'w') as file:
+    with open('C:\\Users\\dakim\\PycharmProjects\\swagger\\static\\server.json', 'w') as file:
         json.dump(jsonObj, file)
     pass
 
 
-add_event('server', 'CALL', 'master')
+#copy_event('server', 'CALL', 'master')
