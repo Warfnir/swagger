@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ce34a2c0-c1f9-49ff-9ae9-63ecf3d588ba" name="Default Changelist" comment="">
+    <list default="true" id="ce34a2c0-c1f9-49ff-9ae9-63ecf3d588ba" name="Default Changelist" comment="Adding events and categories, without params">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/jsonmodyfier.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/jsonmodyfier.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/newPost.py" beforeDir="false" afterPath="$PROJECT_DIR$/newPost.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/gift.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/gift.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/server.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/server.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4450262">
+    <splitter split-orientation="horizontal" split-proportion="0.18698579">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -43,8 +41,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/newPost.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="247">
-                  <caret line="69" column="109" selection-start-line="69" selection-start-column="109" selection-end-line="69" selection-end-column="109" />
+                <state relative-caret-position="309">
+                  <caret line="70" selection-start-line="70" selection-end-line="70" />
                 </state>
               </provider>
             </entry>
@@ -53,11 +51,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/static/server.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="612">
-                  <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+                <state relative-caret-position="415">
+                  <caret line="97" column="1" selection-end-line="97" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
@@ -71,13 +69,14 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/jsonmodyfier.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-280">
-                  <caret line="55" column="33" lean-forward="true" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
+                <state relative-caret-position="1836">
+                  <caret line="115" column="40" lean-forward="true" selection-start-line="115" selection-start-column="40" selection-end-line="115" selection-end-column="40" />
                   <folding>
                     <element signature="e#0#11#0" expanded="true" />
+                    <element signature="e#266#282#0" />
                   </folding>
                 </state>
               </provider>
@@ -142,9 +141,9 @@
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/static/gift.json" />
-        <option value="$PROJECT_DIR$/core/jsonmodyfier.py" />
         <option value="$PROJECT_DIR$/newPost.py" />
         <option value="$PROJECT_DIR$/static/server.json" />
+        <option value="$PROJECT_DIR$/core/jsonmodyfier.py" />
       </list>
     </option>
   </component>
@@ -394,7 +393,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563435046377</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Adding events and categories, without params">
+      <created>1563447076572</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1563447076572</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -408,13 +414,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11690885" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.21640736" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31683168" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2970297" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -454,7 +461,8 @@
     <MESSAGE value="Json objecct change in web and added everywhere" />
     <MESSAGE value="small changes" />
     <MESSAGE value="Deploying on heroku." />
-    <option name="LAST_COMMIT_MESSAGE" value="Deploying on heroku." />
+    <MESSAGE value="Adding events and categories, without params" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding events and categories, without params" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/apis/server/staging.py">
@@ -578,13 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/gift.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -595,27 +596,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newPost.py">
+    <entry file="file://$PROJECT_DIR$/static/gift.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="69" column="109" selection-start-line="69" selection-start-column="109" selection-end-line="69" selection-end-column="109" />
+        <state relative-caret-position="748">
+          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/server.json">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/ntpath.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+        <state relative-caret-position="81">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newPost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/jsonmodyfier.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-280">
-          <caret line="55" column="33" lean-forward="true" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
+        <state relative-caret-position="1836">
+          <caret line="115" column="40" lean-forward="true" selection-start-line="115" selection-start-column="40" selection-end-line="115" selection-end-column="40" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#266#282#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/server.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="97" column="1" selection-end-line="97" selection-end-column="1" />
         </state>
       </provider>
     </entry>

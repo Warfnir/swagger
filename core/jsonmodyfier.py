@@ -1,9 +1,6 @@
 import json
 import os
 
-event_name='callingcenter'
-category_name='call'
-branch_name='master'
 
 def add_event(platform_name,category_name,branch_name,event_name):
     toAdd = {event_name: {
@@ -11,7 +8,7 @@ def add_event(platform_name,category_name,branch_name,event_name):
             "tags": [
                 category_name
             ],
-            "summary": "("+ branch_name+")",
+            "summary": "(" + branch_name + ")",
             # "responses": {
             #     "200": {
             #         "description": "OK",
@@ -22,9 +19,9 @@ def add_event(platform_name,category_name,branch_name,event_name):
             # }
         }
     }
-    }#print
-    print(toAdd[event_name])
-    copy_event(platform_name,category_name,branch_name,toAdd)#.upadte(toAdd))
+    }
+    print('tutaj')
+    copy_event(platform_name,category_name,branch_name,toAdd,event_name)#.upadte(toAdd))
 
 # with open('E:\Python Projects\swagger\static\gift.json', 'r') as file:
 #     data = file.read()
@@ -47,22 +44,40 @@ def check_if_event_exists(event, branch, platform):
     pass
 
 
-def update_event(event, branch, platform):
+def update_event(platform,branch):
     """Updates existing event in given /platform/branch or adds new if it doesn't exists."""
-    pass
-
-
-def copy_event(platform, category_name, branch, toAdd):
-    """Adds new event if it doesn't exists yet in a given /platform/branch."""
-    print(platform,category_name,branch)
-    # Designating path to file
     path = os.path.dirname(os.path.abspath(__file__))
-    #print(path)
     path, sep, rest = path.rpartition('\\')
-    #print(path)
     path += f'\\static\\{platform}.json'
-    #print(path)
+    with open(path, 'r') as file:
+        data = file.read()
+        obj = data[data.find(('{')): data.rfind('}') + 1]
+        jsonObj = json.loads(obj)
+        all_paths = (jsonObj['paths'])
+        vals = list(all_paths.values())
+        keyz = list(all_paths.keys())
+        i=0
+        for val in vals:
+            if val['options']['summary'] == '('+branch+')':
+                jsonObj.get('paths').pop(keyz[i])
+            elif len(val['options']['summary']) > 10:
+                print("Both master and staging are present!")
+                if branch == 'staging':
+                    val['options']['summary'] = '(master)'
+                else:
+                    val['options']['summary'] = '(staging)'
+            i=i+1
+        #print(data)
+        file.close()
+        with open(path, 'w') as file:
+            json.dump(jsonObj, file)
 
+
+def copy_event(platform, category_name, branch, toAdd,event_name):
+    """Adds new event if it doesn't exists yet in a given /platform/branch."""
+    path = os.path.dirname(os.path.abspath(__file__))
+    path, sep, rest = path.rpartition('\\')
+    path += f'\\static\\{platform}.json'
     # Open file and check if event already exists
     with open(path, 'r') as file:
         data = file.read()
@@ -77,17 +92,18 @@ def copy_event(platform, category_name, branch, toAdd):
         for val in vals:
             print(keyz[cnt])
             zloto=(val['options']['tags'])
-            cnt=cnt+1
+
             #print(str(zloto))
             #if(str(zloto).find('CategoryNames'))!=-1:
-            print(zloto)
-            print(val)
-            if len(val['options']['summary'])>10:
-                print("Both master and staging are present!")
-
+            #print(zloto)
+            #print(val)
+            if keyz[cnt]==event_name:
+                val['options']['summary']='(master staging)'
+                toAdd[event_name]['options']['summary'] = '(master staging)'
+            cnt=cnt+1
             #jeśli kategoria już istnieje dodaj edytowany branch i jego schemat
         print("adding event")
-        print(jsonObj.get('paths'))
+        #print(jsonObj.get('paths'))
         jsonObj.get('paths').update(toAdd)
         #print(jsonObj.get('paths'))
             # for i in jsonObj.get('paths'):
@@ -102,7 +118,7 @@ def copy_event(platform, category_name, branch, toAdd):
         # print(jsonObj.get('paths').get('MY_EVENT'))
         # jsonObj.get('paths')
 
-    with open('C:\\Users\\dakim\\PycharmProjects\\swagger\\static\\server.json', 'w') as file:
+    with open(path, 'w') as file:
         json.dump(jsonObj, file)
     pass
 

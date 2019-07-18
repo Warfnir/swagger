@@ -67,6 +67,8 @@ def incomingPost(jsonobject):
         event_cathegory=(events[i]['categoryName'])
         event_Name=(events[i]['eventName'])
         print(way,event_cathegory,branch,event_Name)
+        if i==0:
+            jsonmodyfier.update_event(way,branch)
         jsonmodyfier.add_event(way,event_cathegory,branch,event_Name)#need to send params when they are ready
         print("For " + way + " . Create category "+event_cathegory)
         i=i+1

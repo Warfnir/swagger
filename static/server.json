@@ -10,12 +10,12 @@
     }
   ],
   "paths": {
-    "eventName": {
+    "buy_time": {
       "options": {
         "tags": [
-          "CategoryNames"
+          "PUSH"
         ],
-        "summary": "(master staging)",
+        "summary": "(master)",
         "parameters": [
           {
             "name": "id",
@@ -27,12 +27,12 @@
         ]
       }
     },
-    "eventName2": {
+    "end_time": {
       "options": {
         "tags": [
-          "CategoryName"
+          "PUSH"
         ],
-        "summary": "(staging)"
+        "summary": "(master)"
       }
     },
     "PRESS_START_CALL": {
@@ -40,15 +40,15 @@
         "tags": [
           "CALL"
         ],
-        "summary": "(staging)"
+        "summary": "(master staging)"
       }
     },
     "PRESS_END_CALL": {
       "options": {
         "tags": [
-          "CategoryNames"
+          "CALL"
         ],
-        "summary": "(staging)"
+        "summary": "(master staging)"
       }
     }
   },
