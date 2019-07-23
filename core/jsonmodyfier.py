@@ -1,5 +1,6 @@
 import json
 import os
+import traceback
 
 
 def add_event(platform_name,category_name,branch_name,event_name):
@@ -45,33 +46,39 @@ def check_if_event_exists(event, branch, platform):
     pass
 
 
-def update_event(platform,branch):
+def delete_events_from_given_branch(platform,branch):
     """Updates existing event in given platform and deletes all with the current branch."""
     path = os.path.dirname(os.path.abspath(__file__))
     path, sep, rest = path.rpartition('\\')
     path += f'\\static\\{platform}.json'
     try:
         with open(path, 'r+') as file:
-            data = file.read()
-            obj = data[data.find('{'): data.rfind('}') + 1]
-            jsonObj = json.loads(obj)
-            all_paths = (jsonObj['paths'])
-            vals = list(all_paths.values())
-            keyz = list(all_paths.keys())
-            i=0
-            for val in vals:
-                try:
-                    print(keyz[i])
-                    name=str(keyz[i]).split(' ',1)
-                    print(name[1])
-                    if name[1].find(branch)!=-1:
-                        name[1]=name[1].replace(' '+branch,'')
-                        print(name[1])
-                        #print(name)
-                    if name[1] =='( )':
-                        print (name[1])
-                        jsonObj.get('paths').pop(keyz[i])
-                        print(keyz[i])
+            data = json.load(file)
+            # jsonObj = json.dumps()
+            print(data)
+            events = data['paths'].keys()
+            print(events)
+            for event in events:
+                if event.contains(branch):
+                    # delete branch from event
+                    # delete model of given branch
+                    # if event doesnt have more branches then delete him
+                    pass
+            return
+            # i=0
+            # for val in vals:
+            #     try:
+            #         print(keyz[i])
+            #         name=str(keyz[i]).split(' ',1)
+            #         print(name[1])
+            #         if name[1].find(branch)!=-1:
+            #             name[1]=name[1].replace(' '+branch,'')
+            #             print(name[1])
+            #             print(name)
+                    # if name[1] =='( )':
+                    #     print (name[1])
+                    #     jsonObj.get('paths').pop(keyz[i])
+                    #     print(keyz[i])
                     # if str(val['options']['summary']) == '('+branch+')':
                     #     jsonObj.get('paths').pop(keyz[i])
                     # elif len(val['options']['summary']) > 10:
@@ -80,12 +87,13 @@ def update_event(platform,branch):
                     #         val['options']['summary'] = '(master)'
                     #     else:
                     #         val['options']['summary'] = '(staging)'
-                    i=i+1
-                except:
-                    pass
-            json.dump(jsonObj, file)
-    except:
-        print('something went wrong')
+                    # i=i+1
+                # except:
+                #     pass
+            # json.dump(jsonObj, file)
+    except Exception as e:
+        traceback.print_exc()
+
 
 
 def copy_event(platform, category_name, branch, toAdd,event_name):

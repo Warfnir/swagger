@@ -20,6 +20,7 @@ app.register_blueprint(server_blueprint, url_prefix=server_url)
 @app.route('/allevents', methods=['POST'])
 def parse_request():
     data = request.get_json()
+    # print(data)
     incomingPost(data)
     return "done"
 
