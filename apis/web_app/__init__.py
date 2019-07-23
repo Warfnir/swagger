@@ -2,8 +2,6 @@ from flask import Blueprint
 from flask_restplus import Api
 from flask_swagger_ui import get_swaggerui_blueprint
 
-from .staging import api as ns1
-from .master import api as ns2
 
 SWAGGER_URL = '/events/web'
 API_URL = '/static/web.json'

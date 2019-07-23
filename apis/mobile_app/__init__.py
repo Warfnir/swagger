@@ -1,6 +1,5 @@
 from flask import Blueprint
 from flask_restplus import Api
-from .staging import api as ns2
 from flask_swagger_ui import get_swaggerui_blueprint
 
 SWAGGER_URL = '/events/mobile'

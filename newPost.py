@@ -8,6 +8,7 @@ def incomingPost(jsonobject):
     #print(parsed)
     platform = parsed['platform']#'mobile'
     branch = parsed['branch']#'staging'
+    platform_path='/'+platform
     #print(parsed['jsonData'])
 
     #print(platform)
@@ -65,6 +66,11 @@ def incomingPost(jsonobject):
     i=0
     for event in range(len(events)):
         event_cathegory=(events[i]['categoryName'])
+        #print(event_cathegory)
+        print(events[i])
+        event_parameters=events[i]['data']
+        print(event_parameters)
+        #print((str(event_parameters)).strip('[{}]'))
         event_Name=(events[i]['eventName'])
         print(way,event_cathegory,branch,event_Name)
         if i==0:

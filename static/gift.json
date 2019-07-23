@@ -1,87 +1,170 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "1.0.0",
-    "title": "Server request documentation"
+    "title": "Platform name",
+    "description": "Description of platform",
+    "version": "1.0.0"
   },
-  "servers": [
-    {
-      "url": "/"
-    }
-  ],
   "paths": {
-    "eventName": {
+    "EVENT_NAME (STAGING MASTER OTHER)": {
       "options": {
         "tags": [
-          "CategoryNames"
+          "EVENT_TAG"
         ],
-        "summary": "(master staging)",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/master staging"
+        "summary": "STAGING MASTER OTHER",
+        "description": "Event description",
+        "requestBody": {
+          "description": "Optional description in *Markdown*",
+          "required": true,
+          "content": {
+            "MASTER": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "otherId": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "someProperty": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "dateProperty": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "some_status": {
+                    "type": "string",
+                    "description": "Order Status",
+                    "enum": [
+                      "placed",
+                      "approved",
+                      "delivered"
+                    ]
+                  },
+                  "complete": {
+                    "type": "boolean",
+                    "default": false
+                  }
+                }
+              }
+            },
+            "STAGING": {
+              "schema": {
+                "$ref": "#/components/schemas/Order"
+              }
+            },
+            "OTHER": {
+              "schema": {
+                "$ref": "#/components/schemas/Order"
+              }
             }
           }
-        ]
+        }
       }
     },
-    "eventName2": {
+    "EVENT_NAME_A (STAGING)": {
       "options": {
         "tags": [
-          "CategoryName"
+          "EVENT_TAG"
         ],
-        "summary": "(staging)"
+        "summary": "STAGING",
+        "description": "Event description",
+        "requestBody": {
+          "description": "Optional description in *Markdown*",
+          "required": true,
+          "content": {
+            "STAGING": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "otherId": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "someProperty": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "dateProperty": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "some_status": {
+                    "type": "string",
+                    "description": "Order Status",
+                    "enum": [
+                      "placed",
+                      "approved",
+                      "delivered"
+                    ]
+                  },
+                  "complete": {
+                    "type": "boolean",
+                    "default": false
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
-    "eventnewname": {
+    "EVENT_NAME_A (MASTER)": {
       "options": {
         "tags": [
-          "CategoryNames"
+          "EVENT_TAG_B"
         ],
-        "summary": "(master staging)"
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "staging": {
-        "type": "object",
-        "properties": {
-          "first_property": {
-            "type": "string",
-            "format": "string"
-          },
-          "second_property": {
-            "type": "string",
-            "format": "string"
-          }
-        }
-      },
-      "master": {
-        "type": "object",
-        "properties": {
-          "first_property": {
-            "type": "string",
-            "format": "string"
-          },
-          "second_property": {
-            "type": "string",
-            "format": "string"
-          }
-        }
-      },
-      "master staging": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "format": "string"
-          },
-          "surname": {
-            "type": "string",
-            "format": "string"
+        "summary": "MASTER",
+        "description": "Event description",
+        "requestBody": {
+          "description": "Optional description in *Markdown*",
+          "required": true,
+          "content": {
+            "MASTER": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "otherId": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "someProperty": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "dateProperty": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "some_status": {
+                    "type": "string",
+                    "description": "Order Status",
+                    "enum": [
+                      "placed",
+                      "approved",
+                      "delivered"
+                    ]
+                  },
+                  "complete": {
+                    "type": "boolean",
+                    "default": false
+                  }
+                }
+              }
+            }
           }
         }
       }
