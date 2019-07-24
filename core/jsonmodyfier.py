@@ -43,15 +43,17 @@ def add_event(platform, branch, event_Name, event_cathegory, event_parameters, e
 
             if not added:
                 event_Name = f'{event_Name} ({branch})'
-                data['paths'][event_Name] = {'options': {'tags': [event_cathegory.upper()], 'description': event_description,
-                                                         'requestBody': {'content': {branch: {
-                                                             'schema': event_parameters}}}}}
+                data['paths'][event_Name] = {
+                    'options': {'tags': [event_cathegory.upper()], 'description': event_description,
+                                'requestBody': {'content': {branch: {
+                                    'schema': event_parameters}}}}}
         with open(path, 'w+') as file:
             json.dump(data, file)
 
         return
     except Exception as e:
         traceback.print_exc()
+
 
 def delete_events_from_given_branch(platform, branch):
     path = os.path.dirname(os.path.abspath(__file__))
