@@ -42,7 +42,7 @@ def add_event(platform, branch, event_Name, event_cathegory, event_parameters, e
                 data['paths'][new_key]['options']['description'] = event_description
 
             if not added:
-                event_Name = f'{event_Name} ({branch})'
+                event_Name = f'{event_Name} ( {branch})'
                 data['paths'][event_Name] = {
                     'options': {'tags': [event_cathegory.upper()], 'description': event_description,
                                 'requestBody': {'content': {branch: {
@@ -72,7 +72,7 @@ def delete_events_from_given_branch(platform, branch):
                     branches = branches.replace(branch, '')
 
                     # delete event if doesnt have more branches
-                    if len(branches) != 2:
+                    if len(branches) != 3:
                         value = data['paths'][event]
                         value['options']['requestBody']['content'].pop(branch[:-1])
                         paths[event.split('(')[0] + branches] = value
