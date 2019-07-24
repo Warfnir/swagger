@@ -6,7 +6,7 @@
     "version": "1.0.0"
   },
   "paths": {
-    "EVENT_NAME (STAGING MASTER OTHER)": {
+    "EVENT_NAME (STAGING MASTER OTHER )": {
       "options": {
         "tags": [
           "EVENT_TAG"
@@ -67,7 +67,7 @@
         }
       }
     },
-    "EVENT_NAME_A (STAGING)": {
+    "EVENT_NAME_A (STAGING )": {
       "options": {
         "tags": [
           "EVENT_TAG"
@@ -118,7 +118,7 @@
         }
       }
     },
-    "EVENT_NAME_A (MASTER)": {
+    "EVENT_NAME_A (MASTER )": {
       "options": {
         "tags": [
           "EVENT_TAG_B"
