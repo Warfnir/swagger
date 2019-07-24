@@ -58,20 +58,26 @@ def delete_events_from_given_branch(platform, branch):
             data = json.load(file)
             events = data['paths'].keys()
             branch = branch.upper() + ' '
-
+            paths = dict()
             for event in events:
+                print(event)
                 branches = event[event.find('('):event.find(')') + 1]
                 if branch in branches:
                     # delete branch from branches
                     branches = branches.replace(branch,'')
 
                     # delete event if doesnt have more branches
-                    if len(branches) == 2:
-                        data['paths'].pop(event)
-
-                    # delete model of given branch
-                    else:
-                        data['paths'][event]['options']['requestBody']['content'].pop(branch[:-1])
+                    if len(branches) != 2:
+                        value = data['paths'][event]
+                        value['options']['requestBody']['content'].pop(branch[:-1])
+                        paths[event.split('(')[0]+branches] = value
+                else:
+                    paths[event] = data['paths'][event]
+            # data['paths'] = paths
+        with open(path, 'w+') as file:
+            data['paths'] = paths
+            file.truncate(0)
+            json.dump(data,file)
         return
     except Exception as e:
         traceback.print_exc()
