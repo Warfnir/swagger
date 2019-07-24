@@ -4,9 +4,7 @@
     <list default="true" id="ce34a2c0-c1f9-49ff-9ae9-63ecf3d588ba" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/jsonmodyfier.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/jsonmodyfier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/gift.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/gift.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/server.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/server.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newPost.py" beforeDir="false" afterPath="$PROJECT_DIR$/newPost.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,16 +16,16 @@
     <session id="-686093637">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="json" value="37" />
-          <entry key="py" value="1476" />
-          <entry key="txt" value="58" />
+          <entry key="json" value="55" />
+          <entry key="py" value="2708" />
+          <entry key="txt" value="98" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON" value="37" />
-          <entry key="PLAIN_TEXT" value="58" />
-          <entry key="Python" value="1476" />
+          <entry key="JSON" value="55" />
+          <entry key="PLAIN_TEXT" value="98" />
+          <entry key="Python" value="2708" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -64,32 +62,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/jsonmodyfier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="77" column="33" lean-forward="true" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
+            <state relative-caret-position="204">
+              <caret line="36" column="48" lean-forward="true" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
+                <marker date="1563963252229" expanded="true" signature="130:2173" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/gift.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="172" column="1" selection-start-line="172" selection-start-column="1" selection-end-line="172" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="51">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -97,11 +87,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newPost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+            <state relative-caret-position="333">
+              <caret line="25" column="60" lean-forward="true" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
-                <marker date="1563889431332" expanded="true" signature="83:97" ph="..." />
+                <marker date="1563962637367" expanded="true" signature="83:97" ph="..." />
               </folding>
             </state>
           </provider>
@@ -176,6 +166,7 @@
       <find>parsejson</find>
       <find>way</find>
       <find>data</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -207,12 +198,12 @@
         <option value="$PROJECT_DIR$/apis/web_app/__init__.py" />
         <option value="$PROJECT_DIR$/apis/mobile_app/__init__.py" />
         <option value="$PROJECT_DIR$/app.py" />
-        <option value="$PROJECT_DIR$/newPost.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/static/mobile.json" />
         <option value="$PROJECT_DIR$/static/server.json" />
-        <option value="$PROJECT_DIR$/core/jsonmodyfier.py" />
+        <option value="$PROJECT_DIR$/newPost.py" />
         <option value="$PROJECT_DIR$/static/gift.json" />
+        <option value="$PROJECT_DIR$/core/jsonmodyfier.py" />
       </list>
     </option>
   </component>
@@ -514,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563953958288</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fixed deleting events from given branch.">
+      <created>1563958179994</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1563958179994</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -582,7 +580,8 @@
     <MESSAGE value="Deleting events of the same branch added" />
     <MESSAGE value="Fixing appending events." />
     <MESSAGE value="Deleting events from given branch." />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleting events from given branch." />
+    <MESSAGE value="Fixed deleting events from given branch." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed deleting events from given branch." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/apis/server/staging.py" />
@@ -642,17 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newPost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <marker date="1563889431332" expanded="true" signature="83:97" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apis/gift/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -688,6 +676,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -698,27 +693,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
+    <entry file="file://$PROJECT_DIR$/newPost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/jsonmodyfier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="77" column="33" lean-forward="true" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
+        <state relative-caret-position="333">
+          <caret line="25" column="60" lean-forward="true" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="true" />
+            <marker date="1563962637367" expanded="true" signature="83:97" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/gift.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="172" column="1" selection-start-line="172" selection-start-column="1" selection-end-line="172" selection-end-column="1" />
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/jsonmodyfier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="36" column="48" lean-forward="true" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1563963252229" expanded="true" signature="130:2173" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
