@@ -6,8 +6,8 @@ import traceback
 def add_event(platform, branch, event_Name, event_cathegory, event_parameters, event_description):
     try:
         path = os.path.dirname(os.path.abspath(__file__))
-        path, sep, rest = path.rpartition('\\')
-        path += f'\\static\\{platform}.json'
+        path, sep, rest = path.rpartition('/')
+        path += f'/static/{platform}.json'
         with open(path, 'r') as file:
             data = json.load(file)
             events = data['paths'].keys()
@@ -57,8 +57,8 @@ def add_event(platform, branch, event_Name, event_cathegory, event_parameters, e
 
 def delete_events_from_given_branch(platform, branch):
     path = os.path.dirname(os.path.abspath(__file__))
-    path, sep, rest = path.rpartition('\\')
-    path += f'\\static\\{platform}.json'
+    path, sep, rest = path.rpartition('/')
+    path += f'/static/{platform}.json'
     try:
         with open(path, 'r+') as file:
             data = json.load(file)
