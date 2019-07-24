@@ -6,15 +6,13 @@
     "version": "1.0.0"
   },
   "paths": {
-    "EVENT_NAME (STAGING MASTER OTHER)": {
+    "EVENT_NAME (STAGING MASTER OTHER )": {
       "options": {
         "tags": [
           "EVENT_TAG"
         ],
-        "summary": "STAGING MASTER OTHER",
         "description": "Event description",
         "requestBody": {
-          "description": "Optional description in *Markdown*",
           "required": true,
           "content": {
             "MASTER": {
@@ -67,15 +65,13 @@
         }
       }
     },
-    "EVENT_NAME_A (STAGING)": {
+    "EVENT_NAME_A (STAGING )": {
       "options": {
         "tags": [
           "EVENT_TAG"
         ],
-        "summary": "STAGING",
         "description": "Event description",
         "requestBody": {
-          "description": "Optional description in *Markdown*",
           "required": true,
           "content": {
             "STAGING": {
@@ -118,15 +114,13 @@
         }
       }
     },
-    "EVENT_NAME_A (MASTER)": {
+    "EVENT_NAME_A (MASTER )": {
       "options": {
         "tags": [
           "EVENT_TAG_B"
         ],
-        "summary": "MASTER",
         "description": "Event description",
         "requestBody": {
-          "description": "Optional description in *Markdown*",
           "required": true,
           "content": {
             "MASTER": {

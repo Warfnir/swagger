@@ -21,8 +21,6 @@ def incomingPost(jsonobject):
         event_cathegory = events[i]['categoryName']
         event_parameters = events[i]['data']
         event_Name = events[i]['eventName']
-        print(event_Name, event_cathegory,'\n', event_parameters)
-        jsonmodyfier.add_event(platform, branch, event_Name, event_cathegory, event_parameters)  # need to send params when they are ready
-        print('-------------------------------------------')
-# openair = '{"branch":"master","joiobject":"arguments","platform":"mobile"}'
-# incomingPost(openair)
+        event_description = events[i]['description']
+        jsonmodyfier.add_event(platform, branch, event_Name, event_cathegory, event_parameters, event_description)  # need to send params when they are ready
+

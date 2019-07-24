@@ -1,1 +1,167 @@
-{"openapi": "3.0.0", "info": {"title": "Platform name", "description": "Description of platform", "version": "1.0.0"}, "paths": {"EVENT_NAME (STAGING OTHER )": {"options": {"tags": ["EVENT_TAG"], "summary": "STAGING MASTER OTHER", "description": "Event description", "requestBody": {"description": "Optional description in *Markdown*", "required": true, "content": {"STAGING": {"schema": {"$ref": "#/components/schemas/Order"}}, "OTHER": {"schema": {"$ref": "#/components/schemas/Order"}}}}}}, "EVENT_NAME_A (STAGING MASTER )": {"options": {"tags": ["EVENT_TAG"], "summary": "STAGING", "description": "Event description", "requestBody": {"description": "Optional description in *Markdown*", "required": true, "content": {"STAGING": {"schema": {"type": "object", "properties": {"id": {"type": "integer", "format": "int64"}, "otherId": {"type": "integer", "format": "int64"}, "someProperty": {"type": "integer", "format": "int32"}, "dateProperty": {"type": "string", "format": "date-time"}, "some_status": {"type": "string", "description": "Order Status", "enum": ["placed", "approved", "delivered"]}, "complete": {"type": "boolean", "default": false}}}}, "MASTER": {"schema": {"type": "object", "required": ["id", "recipientId"], "properties": {"id": {"type": "integer"}, "recipientId": {"type": "integer"}, "username": {"type": "string", "maxLength": 255}}}}}}}}}}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Platform name",
+    "description": "Description of platform",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "EVENT_NAME (STAGING MASTER OTHER )": {
+      "options": {
+        "tags": [
+          "EVENT_TAG"
+        ],
+        "description": "Event description",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "MASTER": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "otherId": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "someProperty": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "dateProperty": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "some_status": {
+                    "type": "string",
+                    "description": "Order Status",
+                    "enum": [
+                      "placed",
+                      "approved",
+                      "delivered"
+                    ]
+                  },
+                  "complete": {
+                    "type": "boolean",
+                    "default": false
+                  }
+                }
+              }
+            },
+            "STAGING": {
+              "schema": {
+                "$ref": "#/components/schemas/Order"
+              }
+            },
+            "OTHER": {
+              "schema": {
+                "$ref": "#/components/schemas/Order"
+              }
+            }
+          }
+        }
+      }
+    },
+    "EVENT_NAME_A (STAGING )": {
+      "options": {
+        "tags": [
+          "EVENT_TAG"
+        ],
+        "description": "Event description",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "STAGING": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "otherId": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "someProperty": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "dateProperty": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "some_status": {
+                    "type": "string",
+                    "description": "Order Status",
+                    "enum": [
+                      "placed",
+                      "approved",
+                      "delivered"
+                    ]
+                  },
+                  "complete": {
+                    "type": "boolean",
+                    "default": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "EVENT_NAME_A (MASTER )": {
+      "options": {
+        "tags": [
+          "EVENT_TAG_B"
+        ],
+        "description": "Event description",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "MASTER": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "otherId": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "someProperty": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "dateProperty": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "some_status": {
+                    "type": "string",
+                    "description": "Order Status",
+                    "enum": [
+                      "placed",
+                      "approved",
+                      "delivered"
+                    ]
+                  },
+                  "complete": {
+                    "type": "boolean",
+                    "default": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
