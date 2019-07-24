@@ -3,7 +3,7 @@ import os
 import traceback
 
 
-def add_event(platform, branch, event_Name, event_cathegory, event_parameters, event_description):
+def add_event(platform, branch, event_Name, event_category, event_parameters, event_description):
     try:
         path = os.path.dirname(os.path.abspath(__file__))
         path, sep, rest = path.rpartition('/')
@@ -24,7 +24,7 @@ def add_event(platform, branch, event_Name, event_cathegory, event_parameters, e
 
             for event in same_events:
                 tags = data['paths'][event]['options']['tags']
-                if tags[0] == event_cathegory:
+                if tags[0] == event_category:
                     branches = event[event.find('('):event.find(')') + 1]
                     branches = branches[:-1] + branch.upper() + ')'
                     old_key = event
@@ -44,7 +44,7 @@ def add_event(platform, branch, event_Name, event_cathegory, event_parameters, e
             if not added:
                 event_Name = f'{event_Name} ( {branch})'
                 data['paths'][event_Name] = {
-                    'options': {'tags': [event_cathegory.upper()], 'description': event_description,
+                    'options': {'tags': [event_category.upper()], 'description': event_description,
                                 'requestBody': {'content': {branch: {
                                     'schema': event_parameters}}}}}
         with open(path, 'w+') as file:
