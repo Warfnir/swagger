@@ -3,11 +3,11 @@ import os
 import traceback
 
 
-def add_event(platform, branch, event_Name, event_cathegory, event_parameters, event_description):
+def add_event(platform, branch, event_Name, event_category, event_parameters, event_description):
     try:
         path = os.path.dirname(os.path.abspath(__file__))
-        path, sep, rest = path.rpartition('\\')
-        path += f'\\static\\{platform}.json'
+        path, sep, rest = path.rpartition('/')
+        path += f'/static/{platform}.json'
         with open(path, 'r') as file:
             data = json.load(file)
             events = data['paths'].keys()
@@ -24,7 +24,7 @@ def add_event(platform, branch, event_Name, event_cathegory, event_parameters, e
 
             for event in same_events:
                 tags = data['paths'][event]['options']['tags']
-                if tags[0] == event_cathegory:
+                if tags[0] == event_category:
                     branches = event[event.find('('):event.find(')') + 1]
                     branches = branches[:-1] + branch.upper() + ')'
                     old_key = event
@@ -42,10 +42,11 @@ def add_event(platform, branch, event_Name, event_cathegory, event_parameters, e
                 data['paths'][new_key]['options']['description'] = event_description
 
             if not added:
-                event_Name = f'{event_Name} ({branch})'
-                data['paths'][event_Name] = {'options': {'tags': [event_cathegory.upper()], 'description': event_description,
-                                                         'requestBody': {'content': {branch: {
-                                                             'schema': event_parameters}}}}}
+                event_Name = f'{event_Name} ( {branch})'
+                data['paths'][event_Name] = {
+                    'options': {'tags': [event_category.upper()], 'description': event_description,
+                                'requestBody': {'content': {branch: {
+                                    'schema': event_parameters}}}}}
         with open(path, 'w+') as file:
             json.dump(data, file)
 
@@ -53,10 +54,11 @@ def add_event(platform, branch, event_Name, event_cathegory, event_parameters, e
     except Exception as e:
         traceback.print_exc()
 
+
 def delete_events_from_given_branch(platform, branch):
     path = os.path.dirname(os.path.abspath(__file__))
-    path, sep, rest = path.rpartition('\\')
-    path += f'\\static\\{platform}.json'
+    path, sep, rest = path.rpartition('/')
+    path += f'/static/{platform}.json'
     try:
         with open(path, 'r+') as file:
             data = json.load(file)
@@ -70,7 +72,7 @@ def delete_events_from_given_branch(platform, branch):
                     branches = branches.replace(branch, '')
 
                     # delete event if doesnt have more branches
-                    if len(branches) != 2:
+                    if len(branches) != 3:
                         value = data['paths'][event]
                         value['options']['requestBody']['content'].pop(branch[:-1])
                         paths[event.split('(')[0] + branches] = value
