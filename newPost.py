@@ -13,13 +13,13 @@ def incomingPost(jsonobject):
     branch = parsed['branch']  # 'staging'
 
     events = jsonobject['jsonData']
-
+    keys = events.keys()
     jsonmodyfier.delete_events_from_given_branch(platform, branch)
 
-    for i, event in enumerate(events):
-        event_cathegory = events[i]['categoryName']
-        event_parameters = events[i]['data']
-        event_Name = events[i]['eventName']
-        event_description = events[i]['description']
-        jsonmodyfier.add_event(platform, branch, event_Name, event_cathegory, event_parameters,
-                               event_description)  # need to send params when they are ready
+    for i, key in enumerate(keys):
+        event_category = events[key]['categoryName'].upper()
+        event_parameters = events[key]['data']
+        event_Name = key
+        event_description = events[key]['description']
+        jsonmodyfier.add_event(platform, branch, event_Name, event_category, event_parameters,
+                               event_description)
