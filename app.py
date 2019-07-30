@@ -6,6 +6,7 @@ from apis.mobile_app import mobile_blueprint, SWAGGER_URL as mobile_url
 from apis.web_app import web_blueprint, SWAGGER_URL as web_url
 from apis.server import server_blueprint, SWAGGER_URL as server_url
 from newPost import incomingPost
+from core.swagger_content_operator import process_request
 
 app = Flask(__name__)
 app.debug = True
@@ -18,10 +19,10 @@ app.register_blueprint(server_blueprint, url_prefix=server_url)
 @app.route('/allevents', methods=['POST'])
 def parse_request():
     data = request.get_json()
-    incomingPost(data)
-    return "done"
+    process_request(data)
+    return "request processed"
 
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port, debug=False)
+    app.run(host='0.0.0.0', port=port, debug=True)

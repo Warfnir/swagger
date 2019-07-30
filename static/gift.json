@@ -1,10 +1,1 @@
-{
-  "openapi": "3.0.0",
-  "info": {
-    "title": "Platform name",
-    "description": "Description of platform",
-    "version": "1.0.0"
-  },
-  "paths": {
-  }
-}
+{"openapi": "3.0.0", "info": {"title": "GIFT", "description": "Description of platform", "version": "1.0.0"}, "paths": {}}

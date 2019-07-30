@@ -7,7 +7,7 @@ def add_event(platform, branch, event_name, event_category, event_parameters, ev
     try:
         path = os.path.dirname(os.path.abspath(__file__))
         path, sep, rest = path.rpartition('/')
-        path += f'/static/{platform}.json'
+        path += f'./static/{platform}.json'
         with open(path, 'r') as file:
             data = json.load(file)
             events = data['paths'].keys()
@@ -33,9 +33,13 @@ def add_event(platform, branch, event_name, event_category, event_parameters, ev
                     old_key = event
                     new_key = event_name + ' ' + branches
                     new_value = data['paths'][event]
-                    new_value['options']['requestBody']['content'][branch[:-1]] = {
-                        'schema': event_parameters}  # {'schema':{'type':'object', 'properties': event_parameters}}
-                    print(new_value)
+                    print("EVENTS PARAMETERS:", event_parameters)
+                    # if parameters is null, do not add schema
+                    if event_parameters is not None:
+                        print("DID")
+                        new_value['options']['requestBody']['content'][branch[:-1]] = {
+                        'schema': event_parameters}
+                    # print(new_value)
                     added = True
                     break
 
@@ -48,10 +52,11 @@ def add_event(platform, branch, event_name, event_category, event_parameters, ev
             # if event with that name doesnt exist, create completely new
             if not added:
                 event_Name = f'{event_name} ( {branch})'
-                data['paths'][event_Name] = {
-                    'options': {'tags': [event_category.upper()], 'description': event_description,
-                                'requestBody': {'content': {branch: {
-                                    'schema': event_parameters}}}}}
+                if event_parameters is not None:
+                    data['paths'][event_Name] = {
+                        'options': {'tags': [event_category.upper()], 'description': event_description,
+                                    'requestBody': {'content': {branch: {
+                                        'schema': event_parameters}}}}}
         with open(path, 'w+') as file:
             json.dump(data, file)
 
@@ -63,7 +68,7 @@ def add_event(platform, branch, event_name, event_category, event_parameters, ev
 def delete_events_from_given_branch(platform, branch):
     path = os.path.dirname(os.path.abspath(__file__))
     path, sep, rest = path.rpartition('/')
-    path += f'/static/{platform}.json'
+    path += f'./static/{platform}.json'
     try:
         with open(path, 'r+') as file:
             data = json.load(file)
@@ -78,8 +83,12 @@ def delete_events_from_given_branch(platform, branch):
                     # add new key -> event with different branches unless there are no more branches
                     if len(branches) != 3:
                         value = data['paths'][event]
-                        print(value['options']['requestBody']['content'])
-                        value['options']['requestBody']['content'].pop(branch[:-1])
+                        # print(value['options']['requestBody']['content'])
+                        # Event might have no schema
+                        try:
+                            value['options']['requestBody']['content'].pop(branch[:-1])
+                        except KeyError as e:
+                            continue
                         paths[event.split('(')[0] + branches] = value
 
                 else:
