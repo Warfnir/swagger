@@ -5,7 +5,7 @@ import traceback
 
 def save_new_content(parsed):
     try:
-        with open(f'./{parsed["platform"]}/{parsed["branch"]}.json', 'w') as file:
+        with open(f'./platforms_branches/{parsed["platform"].lower()}/{parsed["branch"].lower()}.json', 'w') as file:
             json.dump(parsed['jsonData'], file)
     except Exception:
         traceback.print_exc()
@@ -18,11 +18,11 @@ def generate_new_swagger_file(parsed):
             scheme = json.load(file)
 
         # get list of files with branches
-        branches_files = os.listdir(f'./{parsed["platform"]}')
+        branches_files = os.listdir(f'./platforms_branches/{parsed["platform"].lower()}')
 
         # for each file add events
         for file_name in branches_files:
-            with open(f'./{parsed["platform"]}/{file_name}', 'r') as file:
+            with open(f'./platforms_branches/{parsed["platform"].lower()}/{file_name}', 'r') as file:
                 file_events = json.load(file)
                 file_events_keys = file_events.keys()
                 act_events_keys = scheme.get('paths').keys()
@@ -47,6 +47,9 @@ def generate_new_swagger_file(parsed):
                                 if file_data != None:
                                     content['options']['requestBody']['content'][file_name[:-5].upper()] = {
                                         'schema': file_data}
+                                else:
+                                    content['options']['requestBody']['content'][file_name[:-5].upper()] = {
+                                        'schema': {'type': 'object', 'required': [], 'properties': {}}}
 
                                 # update scheme
                                 scheme['paths'][new_key] = content
@@ -66,8 +69,12 @@ def generate_new_swagger_file(parsed):
                         else:
                             scheme['paths'][new_key] = {'options': {'tags': [category],
                                                                     'description': file_events[file_key]['description'],
-                                                                    'requestBody': {'content': {}}}}
+                                                                    'requestBody': {'content': {
+                                                                        file_name[:-5].upper(): {
+                                                                            'schema': {'type': 'object', 'required': [],
+                                                                                       'properties': {}}}}}}}
         scheme['info']['title'] = parsed['platform'].upper()
+        scheme['info']['description'] = f'Description of {parsed["platform"].upper()}'
         return scheme
     except Exception as e:
         traceback.print_exc()
