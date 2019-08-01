@@ -1,7 +1,8 @@
 import json
 import os
+import traceback
 
-from flask import Flask, request
+from flask import Flask, request, abort
 from apis.gift import gift_blueprint, SWAGGER_URL as gift_url
 from apis.mobile_app import mobile_blueprint, SWAGGER_URL as mobile_url
 from apis.web_app import web_blueprint, SWAGGER_URL as web_url
@@ -18,20 +19,22 @@ app.register_blueprint(server_blueprint, url_prefix=server_url)
 
 @app.route('/allevents', methods=['POST'])
 def parse_request():
-    data = request.get_json()
-    process_request(data)
-    return "request processed"
-
+    try:
+        data = request.get_json()
+        process_request(data)
+        return "Request processed"
+    except Exception :
+        traceback.print_exc()
+        abort(500, "Something went wrong.")
 
 @app.before_first_request
 def initialize_files():
     for platform in os.listdir(f'./platforms_branches'):
-        print(platform)
-        new_content = generate_new_swagger_file({"jsonData": {}, "branch": '', "platform": platform})
+        new_content = generate_new_swagger_file(platform)
         with open(f'./static/{platform}.json', 'w') as file:
             json.dump(new_content, file)
 
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port, debug=False)
+    app.run(host='0.0.0.0', port=port, debug=True)
