@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce34a2c0-c1f9-49ff-9ae9-63ecf3d588ba" name="Default Changelist" comment="Added files for each branch in each platform. Fixed generating swagger file.">
-      <change afterPath="$PROJECT_DIR$/platforms_registration.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/gift/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/mobile_app/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/server/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/web_app/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms_branches/gift/dev.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms_branches/gift/master.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms_branches/mobile/dev.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms_branches/mobile/master.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms_branches/server/dev.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms_branches/server/master.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms_branches/web/dev.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/platforms_branches/web/master.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms_registration.py" beforeDir="false" afterPath="$PROJECT_DIR$/platforms_registration.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -349,15 +337,6 @@
     </task>
     <option name="localTasksCounter" value="16" />
     <servers />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

@@ -1,11 +1,9 @@
 import os
 import traceback
-
-from flask_restplus import Api
 from flask_swagger_ui import get_swaggerui_blueprint
 
 
-def prepare_blueprints(app):
+def register_blueprints(app):
     platforms = [p for p in os.environ.get('PLATFORMS', "web server mobile gift").split(" ")]
     for platform in platforms:
         try:

@@ -4,7 +4,7 @@ import traceback
 
 from flask import Flask, request, abort
 
-from platforms_registration import prepare_blueprints
+from platforms_registration import register_blueprints
 from swagger_content_operator import process_request, generate_new_swagger_file
 
 app = Flask(__name__)
@@ -28,6 +28,7 @@ def initialize_files():
 
 
 if __name__ == "__main__":
-    prepare_blueprints(app)
+    os.environ['FLASK_ENV'] = 'development'
+    register_blueprints(app)
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port, debug=False)
