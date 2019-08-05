@@ -1,0 +1,10 @@
+To run docker image use this command:
+docker run --name <container-name> -v <volume-name>:/app -e PORT=<port-number> -e PLATFORMS=<list-of-platforms> <image-name>
+
+for example:
+docker run --name swagger -v swagger-volume:/app -e PORT=8080 -e PLATFORMS="web gift" warfnir/swagger_events
+
+BY DEFAULT
+PORT = 5000
+PLATFORMS = "web server mobile gift"
+
