@@ -3,20 +3,20 @@ import os
 import traceback
 
 
-def save_new_content(parsed):
-    with open(f'./platforms_branches/{parsed["platform"].lower()}/{parsed["branch"].lower()}.json', 'w') as file:
+def save_new_content(parsed,volume_path):
+    with open(f'{volume_path}/platforms_branches/{parsed["platform"].lower()}/{parsed["branch"].lower()}.json', 'w') as file:
         json.dump(parsed['jsonData'], file)
 
 
-def generate_new_swagger_file(platform):
+def generate_new_swagger_file(platform,volume_path):
     # load scheme
     with open(f'./static/scheme.json') as file:
         scheme = json.load(file)
     # get list of files with branches
-    branches_files = os.listdir(f'./platforms_branches/{platform}')
+    branches_files = os.listdir(f'{volume_path}/platforms_branches/{platform}')
     # for each file add events
     for file_name in branches_files:
-        with open(f'./platforms_branches/{platform}/{file_name}', 'r') as file:
+        with open(f'{volume_path}/platforms_branches/{platform}/{file_name}', 'r') as file:
             file_events = json.load(file)
             file_events_keys = file_events.keys()
             act_events_keys = scheme.get('paths').keys()
@@ -69,14 +69,14 @@ def generate_new_swagger_file(platform):
     return scheme
 
 
-def process_request(json_data):
+def process_request(json_data, volume_path):
     parsed = json.dumps(json_data)
     parsed = json.loads(parsed)
 
-    save_new_content(parsed)
+    save_new_content(parsed, volume_path)
 
     platform = parsed['platform'].lower()
-    new_content = generate_new_swagger_file(platform)
+    new_content = generate_new_swagger_file(platform,volume_path)
 
     with open(f'./static/{platform}.json', 'w') as file:
         json.dump(new_content, file)

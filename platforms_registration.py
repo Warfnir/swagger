@@ -2,16 +2,18 @@ import os
 import traceback
 from flask_swagger_ui import get_swaggerui_blueprint
 
-
-def register_blueprints(app):
+def create_directiories(volume_path):
     platforms = [p for p in os.environ.get('PLATFORMS', "web server mobile gift").split(" ")]
     for platform in platforms:
         try:
-            os.mkdir(f'./platforms_branches/{platform}')
+            os.mkdir(f'{volume_path}/platforms_branches/{platform}')
         # It might already exists
         except FileExistsError:
             pass
 
+def register_blueprints(app):
+    platforms = os.listdir('./platforms_branches')
+    for platform in platforms:
         try:
             SWAGGER_URL = f'/events/{platform}'
             API_URL = f'/static/{platform}.json'
