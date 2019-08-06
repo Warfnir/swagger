@@ -10,7 +10,8 @@ for example:
 ```console
 docker run --name swagger -v swagger-volume:/app/platforms_branches -p 5000:5000 -e PLATFORMS="web gift" swagger-image
 ```
--BY DEFAULT:
-    -PORT = 5000
-    -PLATFORMS = "web server mobile gift"
+- BY DEFAULT
+  - PORT = 5000
+  - PLATFORMS = "web server mobile gift"
+
 
