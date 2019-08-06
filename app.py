@@ -22,7 +22,10 @@ def parse_request():
 @app.before_first_request
 def initialize_swagger_files():
     platforms = os.listdir('./platforms_branches')
-    platforms.pop(platforms.index('.gitignore'))
+    try:
+        platforms.pop(platforms.index('.gitignore'))
+    except Exception:
+        pass
     for platform in platforms:
         new_content = generate_new_swagger_file(platform)
         with open(f'./static/{platform}.json', 'w') as file:
