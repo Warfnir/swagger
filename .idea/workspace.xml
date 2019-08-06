@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce34a2c0-c1f9-49ff-9ae9-63ecf3d588ba" name="Default Changelist" comment="Added files for each branch in each platform. Fixed generating swagger file.">
+<<<<<<< HEAD
+=======
+      <change afterPath="$PROJECT_DIR$/platforms_branches/.gitignore" afterDir="false" />
+>>>>>>> c606056bbc0677548ad5c2001d2f3a68b0ca399a
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
@@ -18,40 +22,6 @@
         <option value="Python Script" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>dogs</find>
-      <find>book re</find>
-      <find>Gift Master</find>
-      <find>components/schemas/bookRequest</find>
-      <find>num</find>
-      <find>schema</find>
-      <find>bookRequests</find>
-      <find>$</find>
-      <find>put</find>
-      <find>json</find>
-      <find>pplication/json</find>
-      <find>post</find>
-      <find>bookRequest</find>
-      <find>param</find>
-      <find>bookRequestPostBody</find>
-      <find>master</find>
-      <find>tags</find>
-      <find>jsonobject</find>
-      <find>parsejson</find>
-      <find>way</find>
-      <find>data</find>
-      <find>requi</find>
-      <find>print</find>
-      <find>\</find>
-      <find>plat</find>
-      <find>None</find>
-      <find>./</find>
-      <find>branch</find>
-      <find>parsed</find>
-      <find>prin</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -212,8 +182,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.app" />
-        <item itemvalue="Python.platforms_registration" />
         <item itemvalue="Python.test" />
+        <item itemvalue="Python.platforms_registration" />
         <item itemvalue="Python.jsonmodyfier" />
         <item itemvalue="Python.utils" />
       </list>
