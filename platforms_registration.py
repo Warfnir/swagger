@@ -2,11 +2,11 @@ import os
 import traceback
 from flask_swagger_ui import get_swaggerui_blueprint
 
-def create_directiories(volume_path):
+def create_directiories():
     platforms = [p for p in os.environ.get('PLATFORMS', "web server mobile gift").split(" ")]
     for platform in platforms:
         try:
-            os.mkdir(f'{volume_path}/platforms_branches/{platform}')
+            os.mkdir(f'./platforms_branches/{platform}')
         # It might already exists
         except FileExistsError:
             pass
