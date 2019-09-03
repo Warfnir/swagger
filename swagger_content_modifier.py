@@ -24,7 +24,10 @@ def generate_new_swagger_file(platform):
             for file_key in file_events_keys:
                 event_added = False
                 for act_key in act_events_keys:
-                    if file_key == act_key:
+                    act_key_without_branch = act_key.split('(')[0]
+                    act_key_without_branch = act_key_without_branch[:-1]
+                    print (act_key_without_branch,file_key)
+                    if file_key == act_key_without_branch:
                         # if events are the same compare categories
                         file_category = file_events[file_key]['categoryName'].upper()
                         act_category = scheme['paths'][act_key]['options']['tags']
